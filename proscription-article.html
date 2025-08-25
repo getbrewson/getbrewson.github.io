@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proscription: A Tale of Two Laws</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -84,6 +85,9 @@
 <body class="antialiased">
 
     <div class="container mx-auto p-4 md:p-8">
+        <a href="index.html" class="inline-block text-white text-lg font-bold py-2 px-4 rounded-lg border border-gray-500 hover:bg-gray-700 transition duration-300">
+            &larr; Go Back
+        </a>
 
         <header class="text-center mb-12">
             <h1 class="text-4xl md:text-6xl font-bold mb-2">THE STATE OF <span class="nm-red">EXCEPTION</span></h1>
@@ -192,112 +196,106 @@
     </div>
 
     <script>
-/*!
- * Chart.js v4.4.0
- * https://www.chartjs.org
- * (c) 2023 Chart.js Contributors
- * Released under the MIT License
- */
-(function(G,I){typeof exports==='object'&&typeof module!=='undefined'?I(exports):typeof define==='function'&&define.amd?define(['exports'],I):(G=typeof globalThis!=='undefined'?globalThis:G||self,I(G.Chart=G.Chart||{}));})(this,(function(G){'use strict';function I(t){let e=t.x;let i=t.y;let s=t.width;let n=t.height;if(Object.prototype.hasOwnProperty.call(t,'x2')){let t=t.x2;let s=t.x2;let n=t.y2;t=t.y2;e=Math.min(e,s);i=Math.min(i,n);s=Math.max(e,s)-e;n=Math.max(i,n)-i;}return{x:e,y:i,width:s,height:n};}class t{constructor(){this._box=void 0;this._properties=new Map;}}function e(t,e){let i=t._box;if(e===i){return;}if(!i){return t._box=e,void 0;}let s=i.x;let n=e.x;let a=i.y;let r=e.y;let o=i.x2;let l=e.x2;let c=i.y2;let h=e.y2;let d=s!==n||a!==r||o!==l||c!==h;if(t.update(d),d){i.x=n;i.y=r;i.x2=l;i.y2=h;}}function i(t,e){t.x=e.x;t.y=e.y;t.width=e.width;t.height=e.height;}function s(t,e,i){t.x=e.x+i;t.y=e.y+i;t.width=e.width-2*i;t.height=e.height-2*i;}function n(t,e){t._properties=e;t._box=void 0;}function a(t,e,i,s,n){e.y=e.y2=i;e.x=s;e.x2=n;}function r(t,e,i,s,n){e.x=e.x2=i;e.y=s;e.y2=n;}function o(t,e,i,s){e.x=i;e.y=s;e.width=e.x2-i;e.height=e.y2-s;}function l(t,e,i){e.width=t.width;e.height=t.height;o(0,e,e.x+i,e.y+i);}function c(t,e,i,s){e.x=t.x+i;e.y=t.y+i;e.width=t.width-2*i;e.height=t.height-2*i;if(e.x2,e.y2,s){e.x2=e.x+e.width;e.y2=e.y+e.height;}}function h(t,e,i,s){e.width=i;e.height=s;e.x2=e.x+i;e.y2=e.y+s;}function d(t,e,i,s,n){let a=e.x;let r=e.y;let o=e.x2;let l=e.y2;let c=(s-a)/(o-a);let h=(n-r)/(l-r);t.x=a+i*c;t.y=r+i*h;t.x2=o-i*c;t.y2=l-i*h;}function u(t,e,i){let s=i.radius;let n=Math.sqrt(t*t+e*e);let a=t/n;let r=e/n;t=a*(n-s);e=r*(n-s);i.x=t;i.y=e;i.radius=s;}function g(t,e,i,s){return{x:t+i,y:e+s,width:0,height:0,x2:t+i,y2:e+s};}function f(t,e){if(e<10){return t;}let i=e/2;return t.splice(i,1,t[i]+t[i+1]),f(t,e-1);};function m(t){let e=t.length/2;return e<10?(e=e/2|0,t.splice(e,1,t[e]+t[e+1]),m(t)):t;};function p(t){let e=t.x;let i=t.y;let s=t.x2;let n=t.y2;let a=t.width;let r=t.height;if(a){r=n-i;e=(s+e)/2;a=(s-e)/2;i=(n+i)/2;r=(n-i)/2;}else{a=s-e;r=n-i;}let o=Math.min(a,r);let l=Math.max(a,r);return{x:e,y:i,width:a,height:r,x2:s,y2:n,min:o,max:l,radius:l};}function b(t){let e=t.x;let i=t.y;let s=t.width;let n=t.height;let a=t.x2;let r=t.y2;let o=t.min;let l=t.max;let c=t.radius;if(c){o=l=Math.max(s,n);t.x=e+o;t.y=i+o;t.width=s-2*o;t.height=n-2*o;t.x2=a-o;t.y2=r-o;}else{t.x=e+o;t.y=i+o;t.width=s-2*o;t.height=n-2*o;t.x2=a-o;t.y2=r-o;}return t;};function y(t){let e=t.x;let i=t.y;let s=t.width;let n=t.height;let a=t.x2;let r=t.y2;let o=t.min;let l=t.max;let c=t.radius;if(c){o=l=Math.min(s,n);t.x=e+o;t.y=i+o;t.width=s-2*o;t.height=n-2*o;t.x2=a-o;t.y2=r-o;}else{t.x=e+o;t.y=i+o;t.width=s-2*o;t.height=n-2*o;t.x2=a-o;t.y2=r-o;}return t;};
-const wrapLabel = (label) => {
-    const maxLength = 16;
-    if (label.length <= maxLength) {
-        return label;
-    }
-    const words = label.split(' ');
-    const lines = [];
-    let currentLine = '';
-    for (const word of words) {
-        if ((currentLine + ' ' + word).length > maxLength && currentLine.length > 0) {
-            lines.push(currentLine);
-            currentLine = word;
-        } else {
-            currentLine = currentLine ? currentLine + ' ' + word : word;
+window.onload = function() {
+    const wrapLabel = (label) => {
+        const maxLength = 16;
+        if (label.length <= maxLength) {
+            return label;
         }
-    }
-    lines.push(currentLine);
-    return lines;
-};
-
-const tooltipTitleCallback = (tooltipItems) => {
-    const item = tooltipItems[0];
-    let label = item.chart.data.labels[item.dataIndex];
-    if (Array.isArray(label)) {
-        return label.join(' ');
-    }
-    return label;
-};
-
-const proscriptionData = {
-    labels: [
-        wrapLabel('Palestine Action (Property Damage)'),
-        wrapLabel('Provisional IRA (Armed Insurgency)'),
-        wrapLabel('Al-Qaeda (Mass-casualty Bombings)')
-    ],
-    datasets: [{
-        label: 'Years to Proscription (Approx.)',
-        data: [15 / 365, 5, 3],
-        backgroundColor: [
-            '#E60000',
-            '#CCCCCC',
-            '#999999'
-        ],
-        borderColor: [
-            '#FF3333',
-            '#E0E0E0',
-            '#B0B0B0'
-        ],
-        borderWidth: 1
-    }]
-};
-
-const proscriptionConfig = {
-    type: 'bar',
-    data: proscriptionData,
-    options: {
-        indexAxis: 'y',
-        maintainAspectRatio: false,
-        scales: {
-            x: {
-                beginAtZero: true,
-                title: {
-                    display: true,
-                    text: 'Approximate Years from Major Incidents to Proscription',
-                    color: '#F3F3F3',
-                    font: { size: 14 }
-                },
-                ticks: { color: '#F3F3F3' }
-            },
-            y: {
-                ticks: { color: '#F3F3F3', font: { size: 12 } }
-                
+        const words = label.split(' ');
+        const lines = [];
+        let currentLine = '';
+        for (const word of words) {
+            if ((currentLine + ' ' + word).length > maxLength && currentLine.length > 0) {
+                lines.push(currentLine);
+                currentLine = word;
+            } else {
+                currentLine = currentLine ? currentLine + ' ' + word : word;
             }
-        },
-        plugins: {
-            legend: {
-                display: false
+        }
+        lines.push(currentLine);
+        return lines;
+    };
+
+    const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        if (Array.isArray(label)) {
+            return label.join(' ');
+        }
+        return label;
+    };
+    
+    const proscriptionData = {
+        labels: [
+            wrapLabel('Palestine Action (Property Damage)'),
+            wrapLabel('Provisional IRA (Armed Insurgency)'),
+            wrapLabel('Al-Qaeda (Mass-casualty Bombings)')
+        ],
+        datasets: [{
+            label: 'Years to Proscription (Approx.)',
+            data: [15 / 365, 5, 3],
+            backgroundColor: [
+                '#E60000',
+                '#CCCCCC',
+                '#999999'
+            ],
+            borderColor: [
+                '#FF3333',
+                '#E0E0E0',
+                '#B0B0B0'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    const proscriptionConfig = {
+        type: 'bar',
+        data: proscriptionData,
+        options: {
+            indexAxis: 'y',
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Approximate Years from Major Incidents to Proscription',
+                        color: '#F3F3F3',
+                        font: { size: 14 }
+                    },
+                    ticks: { color: '#F3F3F3' }
+                },
+                y: {
+                    ticks: { color: '#F3F3F3', font: { size: 12 } }
+                    
+                }
             },
-            tooltip: {
-                callbacks: {
-                    title: tooltipTitleCallback,
-                    label: function(context) {
-                        let value = context.raw;
-                        if (value < 1) {
-                            return `Proscribed in ${Math.round(value * 365)} days`;
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback,
+                        label: function(context) {
+                            let value = context.raw;
+                            if (value < 1) {
+                                return `Proscribed in ${Math.round(value * 365)} days`;
+                            }
+                            return `Proscribed in ~${value.toFixed(1)} years`;
                         }
-                        return `Proscribed in ~${value.toFixed(1)} years`;
                     }
                 }
             }
         }
-    }
-};
+    };
 
-new Chart(
-    document.getElementById('proscriptionTimelineChart'),
-    proscriptionConfig
-);
+    new Chart(
+        document.getElementById('proscriptionTimelineChart'),
+        proscriptionConfig
+    );
+};
     </script>
 </body>
 </html>
-
